@@ -1,0 +1,23 @@
+{
+  "name": "adventofcode2021",
+  "version": "1.0.0",
+  "description": "tools:\r add commas to all lines:\r find: ^(.*)$ replace: $0,",
+  "main": "index.html",
+  "dependencies": {
+    "serve": "^13.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "serve": "serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuclearsword/adventofcode2021.git"
+  },
+  "author": "Kyle Dunbar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nuclearsword/adventofcode2021/issues"
+  },
+  "homepage": "https://github.com/nuclearsword/adventofcode2021#readme"
+}

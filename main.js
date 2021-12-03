@@ -1,5 +1,9 @@
-import c1 from './challenges/1.js';
-import c2 from './challenges/2.js';
+import d1c1 from './challenges/d1c1.js';
+import d1c2 from './challenges/d1c2.js';
+import d2c1 from './challenges/d2c1.js';
+import d2c2 from './challenges/d2c2.js';
 
-c1();
-c2();
+d1c1();
+d1c2();
+d2c1();
+d2c2();

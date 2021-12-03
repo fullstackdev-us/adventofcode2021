@@ -1,7 +1,7 @@
 import input from '../inputFiles/1.js';
 
 export default () => {
-    const element = document.getElementById('2');
+    const element = document.getElementById('d1c2');
 
     let increased = 0;
     let start = 0;

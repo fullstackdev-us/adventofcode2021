@@ -1,10 +1,7 @@
 import input from '../inputFiles/3.js';
+const binaryLength = 12;
 
-export default () => {
-    const element = document.getElementById('d3c1');
-
-    const binaryLength = 12;
-
+export const d3c1 = () => {
     const gamma = [];
     const epsilon = [];
 
@@ -32,5 +29,5 @@ export default () => {
     const gammaDecimal = parseInt(gammaString, 2);
     const epsilonDecimal = parseInt(epsilonString, 2);
 
-    element.innerHTML = `gamma: ${gammaDecimal} <br> epsilon: ${epsilonDecimal} <br> gamma * espilon = ${gammaDecimal * epsilonDecimal}`;
+    return gammaDecimal * epsilonDecimal;
 };

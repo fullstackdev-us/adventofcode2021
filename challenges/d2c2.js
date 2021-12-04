@@ -1,8 +1,6 @@
 import input from '../inputFiles/2.js';
 
-export default () => {
-    const element = document.getElementById('d2c2');
-
+export const d2c2 = () => {
     let z = 0;
     let y = 0;
     let aim = 0;
@@ -37,5 +35,5 @@ export default () => {
         }
     }
 
-    element.innerHTML = `z = ${z} <br> y = ${y} <br> z * y = ${z*y}`;
+    return z*y;
 };

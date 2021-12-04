@@ -1,8 +1,6 @@
 import input from '../inputFiles/1.js';
 
-export default () => {
-    const element = document.getElementById('d1c2');
-
+export const d1c2 = () => {
     let increased = 0;
     let start = 0;
     let lastSum = 0;
@@ -23,5 +21,5 @@ export default () => {
         }
     }
     
-    element.innerText = `Increased ${increased} times.`;   
+    return increased;
 }

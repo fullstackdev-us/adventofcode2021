@@ -1,5 +1,4 @@
 import input from '../inputFiles/3.js';
-const element = document.getElementById('d3c2');
 const binaryLength = 12;
 
 const oxyPredicate = (ones, zeros, valueTocheck) => {
@@ -36,12 +35,12 @@ const filterInput = (filteredInput, predicate, index = 0) => {
     }
 }
 
-export default () => {
+export const d3c2 = () => {
     let oxygenRatingBinary = filterInput(input, oxyPredicate);
     let co2RatingBinary = filterInput(input, co2Predicate);
 
     const oxygenRatingDecimal = parseInt(oxygenRatingBinary, 2);
     const co2RatingDecimal = parseInt(co2RatingBinary, 2);
 
-    element.innerHTML = `oxygen: ${oxygenRatingDecimal} <br> co2: ${co2RatingDecimal} <br> oxygen * co2 = ${oxygenRatingDecimal * co2RatingDecimal}`;
+    return oxygenRatingDecimal * co2RatingDecimal;
 };

@@ -1,0 +1,19 @@
+.challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.challenge-item {
+  --grid-item-background-color: blue;
+  --grid-item-text-color: white;
+  color: var(--grid-item-text-color);
+  background-color: var(--grid-item-background-color);
+  padding: 20px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+}
+
+.challenge-item:hover {
+  opacity: 0.3;
+  transition: ease-in-out 0.1s;
+}

@@ -1,7 +1,6 @@
 import input from '../inputFiles/3.js';
 
-export default () => {
-    const element = document.getElementById('d3c2');
+export const d3c2 = () => {
     const binaryLength = 12;
     let filteredInput = [...input];
     let oxygenRatingBinary = '';
@@ -55,5 +54,5 @@ export default () => {
     const oxygenRatingDecimal = parseInt(oxygenRatingBinary, 2);
     const co2RatingDecimal = parseInt(co2RatingBinary, 2);
 
-    element.innerHTML = `oxygen: ${oxygenRatingDecimal} <br> co2: ${co2RatingDecimal} <br> oxygen * co2 = ${oxygenRatingDecimal * co2RatingDecimal}`;
+    return oxygenRatingDecimal * co2RatingDecimal;
 };

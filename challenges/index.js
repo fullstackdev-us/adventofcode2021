@@ -4,6 +4,7 @@ import {d2c1} from './d2c1.js';
 import {d2c2} from './d2c2.js';
 import {d3c1} from './d3c1.js';
 import {d3c2} from './d3c2-recursion.js';
+import {d4c1} from './d4c1.js';
 
 export {
     d1c1,
@@ -12,4 +13,5 @@ export {
     d2c2,
     d3c1,
     d3c2,
+    d4c1
 };

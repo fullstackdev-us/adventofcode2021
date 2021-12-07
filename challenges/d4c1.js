@@ -4,12 +4,10 @@ export const d4c1 = () => {
     let finalvalue = 0;
     let boardIndex = 0;
     const numbersCalled = [];
-    const winningBoard = { rows: [], columns: [] };
-
-    //might need to consider if there is a tie situation - this won't find a tie...
+    const winningBoards = [];
 
     //for each number called
-    numbers.some((num) => {
+    numbers.forEach((num) => {
         numbersCalled.push(num);
 
         //evaluate board at boardIndex
@@ -29,30 +27,29 @@ export const d4c1 = () => {
             //evaluate rows and columns
             [...rows, ...columns].forEach(numArr => {
                 if (numArr.every(n => numbersCalled.includes(n))) {
-                    winningBoard.rows = rows;
-                    winningBoard.columns = columns;
-
-                    //break the loop - todo: refactor this
-                    i = boards.length;
+                    const id = `${i}-${range}`;
+                    if (!winningBoards.some(wb => wb.id === id)) {
+                        winningBoards.push({ id, rows, columns, snapshotOfNumbersCalled: [...numbersCalled] });
+                    }
                 }
             });
 
             boardIndex++;
         }
-
-        return winningBoard.rows.length;
     })
 
+    const firstBoard = winningBoards[0];
+
     const unmarkedNumbers = [];
-    winningBoard.rows.forEach(row => 
-        row.filter(num => !numbersCalled
+    firstBoard.rows.forEach(row => 
+        row.filter(num => !firstBoard.snapshotOfNumbersCalled
             .includes(num))
             .forEach(num => unmarkedNumbers.push(num))
         );
     
     const unmarkedNumbersSum = unmarkedNumbers.reduce((a,b)=>a+b);
 
-    finalvalue = unmarkedNumbersSum * numbersCalled[numbersCalled.length - 1];
+    finalvalue = unmarkedNumbersSum * firstBoard.snapshotOfNumbersCalled[firstBoard.snapshotOfNumbersCalled.length - 1];
 
     return finalvalue;
 };

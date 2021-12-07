@@ -6,7 +6,9 @@ import {
     d3c1,
     d3c2,
     d4c1,
-    d4c2
+    d4c2,
+    d5c1,
+    d5c2
 }  from './challenges/index.js';
 import { registerChallenge } from './utils.js'
 
@@ -18,4 +20,6 @@ registerChallenge(d3c1);
 registerChallenge(d3c2);
 registerChallenge(d4c1);
 registerChallenge(d4c2);
+registerChallenge(d5c1);
+registerChallenge(d5c2);
 

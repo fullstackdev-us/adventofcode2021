@@ -1,6 +1,6 @@
 import { numbers, boards } from '../inputFiles/4.js';
 
-export const d4c1 = () => {
+export const d4c2 = () => {
     let finalvalue = 0;
     let boardIndex = 0;
     const numbersCalled = [];
@@ -38,18 +38,18 @@ export const d4c1 = () => {
         }
     })
 
-    const firstBoard = winningBoards[0];
+    const lastBoard = winningBoards[winningBoards.length - 1];
 
     const unmarkedNumbers = [];
-    firstBoard.rows.forEach(row => 
-        row.filter(num => !firstBoard.snapshotOfNumbersCalled
+    lastBoard.rows.forEach(row => 
+        row.filter(num => !lastBoard.snapshotOfNumbersCalled
             .includes(num))
             .forEach(num => unmarkedNumbers.push(num))
         );
     
     const unmarkedNumbersSum = unmarkedNumbers.reduce((a,b)=>a+b);
 
-    finalvalue = unmarkedNumbersSum * firstBoard.snapshotOfNumbersCalled[firstBoard.snapshotOfNumbersCalled.length - 1];
+    finalvalue = unmarkedNumbersSum * lastBoard.snapshotOfNumbersCalled[lastBoard.snapshotOfNumbersCalled.length - 1];
 
     return finalvalue;
 };

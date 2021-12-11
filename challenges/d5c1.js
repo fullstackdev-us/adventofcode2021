@@ -1,20 +1,5 @@
-//import input from '../inputFiles/5.js';
-
-const input = [
-    '0,9 -> 5,9',
-    '8,0 -> 0,8',
-    '9,4 -> 3,4',
-    '2,2 -> 2,1',
-    '7,0 -> 7,4',
-    '6,4 -> 2,0',
-    '0,9 -> 2,9',
-    '3,4 -> 1,4',
-    '0,0 -> 8,8',
-    '5,5 -> 8,2',
-];
-
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#sequence_generator_range
-const sequence = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+import input from '../inputFiles/5.js';
+import { sequence } from '../utils.js';
 
 export const d5c1 = () => {
     let overlappingPoints = 0;
@@ -36,30 +21,25 @@ export const d5c1 = () => {
     const horizontalLines = lines.filter(line => line.y1 === line.y2);
     const verticalLines = lines.filter(line => line.x1 === line.x2);
 
+    let points = [];
     horizontalLines.forEach(hLine => {
         const hSequence = hLine.x1 < hLine.x2 ? sequence(hLine.x1, hLine.x2, 1) : sequence(hLine.x2, hLine.x1, 1);
-
-        const overlappingVertical = verticalLines.filter(vLine => {
-            const vSequence = vLine.y1 < vLine.y2 ? sequence(vLine.y1, vLine.y2, 1) : sequence(vLine.y2, vLine.y1, 1);
-
-            const xOverlaps = hSequence.includes(vLine.x1);
-            const yOverlaps = vSequence.includes(hLine.y1);
-
-            //debugger;
-
-            return xOverlaps && yOverlaps;
-        });
-
-        //reduce doesnt work like you think, just filter
-        const overlappingHorizontalLines = horizontalLines.filter(otherHLine => {
-            const otherHSequence = otherHLine.x1 < otherHLine.x2 ? sequence(otherHLine.x1, otherHLine.x2, 1) : sequence(otherHLine.x2, otherHLine.x1, 1);
-            debugger;
-            return otherHSequence.filter(ohp => hSequence.includes(ohp)).length;
-        });
-
-        overlappingPoints += overlappingVertical.length + overlappingHorizontalPoints;
+        const horizontalLinePoints = hSequence.map(hPoint => ({x: hPoint, y: hLine.y1}));
+        points = [...points, ...horizontalLinePoints];
+    });
+    verticalLines.forEach(vLine => {
+        const vSequence = vLine.y1 < vLine.y2 ? sequence(vLine.y1, vLine.y2, 1) : sequence(vLine.y2, vLine.y1, 1);
+        const verticalLinePoints = vSequence.map(vPoint => ({x: vLine.x1, y: vPoint}));
+        points = [...points, ...verticalLinePoints];
     });
 
+    const pointCounts = {};
+    points.forEach(point => {
+        const key =`x${point.x}y${point.y}`;
+        pointCounts[key] = pointCounts[key] ? pointCounts[key] + 1 : 1;
+    })
+
+    overlappingPoints = Object.values(pointCounts).filter(count => count >= 2).length;
     
     return overlappingPoints;
 };

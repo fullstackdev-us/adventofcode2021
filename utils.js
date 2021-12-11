@@ -38,3 +38,6 @@ export const getContrastColor = (colorRgbString) => {
     
     return "rgb("+contrastColor.join(",")+")";
 }
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#sequence_generator_range
+export const sequence = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));

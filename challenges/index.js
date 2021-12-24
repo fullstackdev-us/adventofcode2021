@@ -8,6 +8,8 @@ import {d4c1} from './d4c1.js';
 import {d4c2} from './d4c2.js';
 import {d5c1} from './d5c1.js';
 import {d5c2} from './d5c2.js';
+import {d6c1} from './d6c1.js';
+import {d6c2} from './d6c2.js';
 
 export {
     d1c1,
@@ -19,5 +21,7 @@ export {
     d4c1,
     d4c2,
     d5c1,
-    d5c2
+    d5c2,
+    d6c1,
+    d6c2
 };
